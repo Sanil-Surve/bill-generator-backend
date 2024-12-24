@@ -4,7 +4,13 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-app.use(cors());
+// app.use(cors());
+app.use(
+  cors({
+    origin: '*', // Allows access from any origin
+    credentials: true, // Allows cookies and credentials if needed
+  })
+);
 app.use(express.json());
 
 app.post("/api/generate-pdf", (req, res) => {
